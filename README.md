@@ -16,7 +16,7 @@ De lijst telt nu 3661 verdwenen gebouwen. Die zijn niet allemaal met de hand ver
 
 Zijn er meer datasets te verzinnen die verdwenen gebouwen bevatten? Er zijn bijvoorbeeld [kastelen te schrapen](https://nl.wikipedia.org/wiki/Lijst_van_kastelen_in_Drenthe).
 
-En via welke api's zijn afbeeldingen van die gebouwen te vinden? De [Opensearch api](http://beeldbank.amsterdam.nl/api/opensearch/?searchTerms=Huis%20met%20de%20Kabouters) van het Amsterdamse Stadsarchief is misschien een optie - we hebben ook een [lijst gebouwnamen](data/gebouwnamen.csv) van ze gekregen.
+En via welke api's zijn afbeeldingen van die gebouwen te vinden? De [Opensearch api](http://beeldbank.amsterdam.nl/api/opensearch/?searchTerms=Huis%20met%20de%20Kabouters) van het Amsterdamse Stadsarchief is misschien een optie - we hebben ook een [lijst gebouwnamen](data/saa.csv) van ze gekregen.
 
 Langzamer, maar vaak wel beter, is het ouderwetsche handwerk. Met de verstrekte inloggegevens (je krijgt ze mee naar huis ;-) kan je zowel nieuwe verdwenen gebouwen als missende gegevens en afbeeldingen toevoegen.
 
