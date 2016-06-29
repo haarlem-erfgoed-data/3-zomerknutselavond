@@ -23,7 +23,7 @@ df2 <- mutate(df2,
                                endmin_cl, 
                                ifelse(is.na(endmin_cl) & !(is.na(endmax_cl)),
                                       endmax_cl, endmin_cl)))
-
+df2$end_est
 
 
 summary(df2$endmin_cl)
@@ -31,16 +31,20 @@ summary(df2$endmax_cl)
 summary(df2$end_est)
 
 # mapping
-nlmap <- get_map("Amersfoort, Netherlands", zoom = 6)
+nlmap <- get_map("Amersfoort, Netherlands", zoom = 7, maptype = "satellite",
+                 darken = )
 ggmap(nlmap)
+
+
+df2s <- subset(df2, end_est > 1500)
 
 
 lost_date <- ggmap(nlmap,
                    base_layer=ggplot(aes(x=as.numeric(lon),
                                                    y=as.numeric(lat)), 
-                                               data=df2),
-                   extent = "device", maprange=FALSE) + 
-    geom_jitter(aes(colour = end_est)) + 
+                                               data=subset(df2s)),
+                   extent = "device", maprange = FALSE) + 
+    geom_jitter(aes(colour = end_est), alpha = .7) + 
     scale_colour_gradient(low = "green", high = "red") +
     theme_bw(base_size = 16) + 
     labs(x = "longitude", y = "latitude", title = 
