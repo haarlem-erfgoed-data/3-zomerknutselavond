@@ -65,6 +65,18 @@ summary(df2$end_est)
 
 
 df2s <- subset(df2, end_est >= 1500)
+df2t <- subset(df2, end_est >= 1500 & start_est >= 1500)
+
+pps <- ggplot(df2t, aes(start_est, end_est)) +
+    geom_jitter(aes(colour = type), shape = "o", alpha = .7) + 
+    theme_bw(base_size = 16) + 
+    scale_colour_discrete(guide = FALSE) +
+    labs(x = "start year", y = "end year", title = 
+             "Start year, end year and type since 1500" ) 
+pps
+
+ggsave(filename = "~/git/3-zomerknutselavond/img/startYr_endYr_type1500.png", 
+       pps)
 
 
 lost_date <- ggmap(nlmap,
