@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt8"><![endif]-->
+<!--[if IE 7 ]><html lang="en" class="ie7 ielt8"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="ie8"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>Scala.js Application</title>
+    <script
+            type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA7wT0SSwYT1JUIDII6SWS98yQWPNjEBl8">
+    </script>
+
+    <script type="text/javascript" src="/workbench.js"></script>
+    <!-- Include JavaScript dependencies -->
+    <script type="text/javascript" src="../lostbuildings-smalldata-jsdeps.js"></script>
+    <!-- Include Scala.js compiled code -->
+    <script type="text/javascript" src="../lostbuildings-smalldata-fastopt.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+       #map-canvas {width: 360px; height: 440px;}
+    </style>
+</head>
+<body>
+<h1>Scala.js SPA - fast-optimized version</h1>
+
+<div id="map-canvas"></div>
+<!-- Run nl.verdwenengebouwen.leones.Main() -->
+<script type="text/javascript">nl.verdwenengebouwen.leones.Main();</script>
+</body>
+</html>
