@@ -2,6 +2,7 @@ package nl.verdwenengebouwen
 package leones
 
 import google.maps.{LatLng, MapOptions, MarkerImage}
+import org.scalajs.dom._
 
 import scala.scalajs.js
 
@@ -26,5 +27,7 @@ object GMapsDefs {
     else
       s"""<div id="content">${buildings.head.id} ${buildings.head.name}</div>"""
   }
+
+  def stopLoadingIndicatorSpins(img : html.Image) = img.style.display = "none"
 
 }
