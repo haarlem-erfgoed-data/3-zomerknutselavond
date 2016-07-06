@@ -1,15 +1,14 @@
-package nl.verdwenengebouwen.leones
+package nl.verdwenengebouwen
+package leones
 
 import google.maps.LatLng
-
-import scala.util.Try
 
 case class ImageModelFields(
                              img_file: String,
                              permalink: String
                            )
 
-// The stucture of the JSON model
+// The structure of the VG JSON model
 case class LostBuildingFields01(id: String,
                                 lat: String,
                                 lon: String,
@@ -30,7 +29,7 @@ case class LostBuildingFields01(id: String,
                                 img_url: String,
                                 uri: String
                                ) {
-  lazy val coords = Try {
+  lazy val coords = scala.util.Try {
     val (_lat, _lng) = (lat.toDouble, lon.toDouble)
     if (Math.abs(_lat) >= 180D || Math.abs(_lng) >= 180D) throw new IllegalArgumentException("Coordinates out of scope")
 

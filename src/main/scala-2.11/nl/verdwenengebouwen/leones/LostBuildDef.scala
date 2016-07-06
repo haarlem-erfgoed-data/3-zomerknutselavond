@@ -1,8 +1,10 @@
 package nl.verdwenengebouwen
 package leones
 
-
 object LostBuildDef {
+  def endPoint00 = "http://www.verdwenengebouwen.nl/search/json/?q="
+
+  def translating(key: String) = translateTable.getOrElse(key, s"Onbekend gebouwtype (${key.takeRight(9)})").capitalize
 
   def translateTable = Map(
     "http://vocab.getty.edu/aat/300007049" -> "administratiegebouwen",
@@ -87,6 +89,4 @@ object LostBuildDef {
     "http://vocab.getty.edu/aat/300005433" -> "woonhuizen",
     "http://vocab.getty.edu/aat/300006676" -> "ziekenhuizen",
     "http://vocab.getty.edu/aat/300007376" -> "zwembaden")
-
-  def translating(key: String) = translateTable.getOrElse(key, s"Onbekend gebouwtype (${key.takeRight(9)})").capitalize
 }
