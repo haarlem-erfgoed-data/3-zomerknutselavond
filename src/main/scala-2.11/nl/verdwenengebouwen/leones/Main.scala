@@ -47,19 +47,23 @@ object Main {
         }.map(_._1) // List only the coordinates of sorted list by number of buildings
 
         // .3 Place the markers
-        geoBuildings.foreach(coordGroup => {
-          def build = geoBuildingsMap(coordGroup)
-          val dimension = build.size
+        geoBuildings.map(coordGroup => {
+          val build = geoBuildingsMap(coordGroup)
 
-          def marker = new Marker(google.maps.MarkerOptions(
-            // animation= Animation.BOUNCE,
-            icon = if (dimension > 1) blueMarker else null,
-            map = gmap,
-            position = build.head.coords.get,
-            title = s"Hier $dimension objecten"
-          ))
+          def markerGen(buildings: Seq[LostBuildingFields01]) = {
+            val numberOfSameCoordinates = buildings.size
+
+            new Marker(google.maps.MarkerOptions(
+              // animation= Animation.BOUNCE,
+              icon = if (numberOfSameCoordinates > 1) blueMarker else null,
+              map = gmap,
+              position = buildings.head.coords.get,
+              title = s"Hier $numberOfSameCoordinates objecten",
+              zIndex = numberOfSameCoordinates.toDouble))
+          }
 
           // .3.1 Populate each marker with handled message
+          val marker = markerGen(build)
           google.maps.event.addListener(marker, "click", () => {
             def infowindow =
               new google.maps.InfoWindow(google.maps.InfoWindowOptions(content = markerContentBuildingsList(build)))
@@ -75,7 +79,9 @@ object Main {
           case (plaatsnaam, _) => plaatsnaam
         }
 
-        jQuery("#top25-listing").append(ul(top25Cities.map { b => li(s"${b._1} (${b._2.size})") }).render)
+        jQuery("#top25-listing").append(ul(top25Cities.map {
+          case (plaatsnaam, records) => li(s"${if (plaatsnaam.isEmpty) "Plaats niet opgegeven" else plaatsnaam} (${records.size})")
+        }).render)
 
         stopLoadingIndicatorSpins()
 
