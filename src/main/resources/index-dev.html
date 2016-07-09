@@ -14,7 +14,6 @@
             type="text/javascript"
             src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA7wT0SSwYT1JUIDII6SWS98yQWPNjEBl8">
     </script>
-
     <script type="text/javascript" src="/workbench.js"></script>
     <!-- Include JavaScript dependencies -->
     <script type="text/javascript" src="../lostbuildings-smalldata-jsdeps.js"></script>
@@ -22,14 +21,25 @@
     <script type="text/javascript" src="../lostbuildings-smalldata-fastopt.js"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-     #map-canvas {width: 360px; height: 440px;}
+    #map-canvas {width: 360px; height: 440px;}
+    .left {
+        float: left;
+        width: 50%;
+    }
+    .right {
+        margin-left: 50%;
+    }
     </style>
 </head>
+
 <body>
 <h1>Scala.js SPA - fast-optimized version</h1>
-<img src="http://code.jquery.com/mobile/1.3.1/images/ajax-loader.gif" id="spinnerImg"/>
-
-<div id="map-canvas"></div>
+<div class="left">
+    <div id="map-canvas"></div>
+</div>
+<div class="right">
+    <img src="http://code.jquery.com/mobile/1.3.1/images/ajax-loader.gif" id="spinnerImg"/>
+</div>
 <!-- Run object nl.verdwenengebouwen.leones.Main(), function main -->
 <script type="text/javascript">nl.verdwenengebouwen.leones.Main().main();</script>
 </body>
