@@ -28,6 +28,7 @@ object GMapsDefs {
       s"""<div id="content">${buildings.head.id} ${buildings.head.name}</div>"""
   }
 
-  def stopLoadingIndicatorSpins(img : html.Image) = img.style.display = "none"
+  def stopLoadingIndicatorSpins(img : String = "spinnerImg") =
+    document.getElementById(img).asInstanceOf[html.Image].style.display = "none"
 
 }
