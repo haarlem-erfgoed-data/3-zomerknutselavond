@@ -46,6 +46,8 @@ object Main {
           (-blds.size, blds.head.coords.get.lat, blds.head.coords.get.lng)
         }.map(_._1) // List only the coordinates of sorted list by number of buildings
 
+        println(s"${rawBuildingRecords.size} loaded, ${rawBuildingRecords.size - geoBuildingsMap.size} rejected.")
+
         // .3 Place the markers
         geoBuildings.map(coordGroup => {
           val build = geoBuildingsMap(coordGroup)
